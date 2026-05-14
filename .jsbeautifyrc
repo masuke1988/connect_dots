@@ -1,0 +1,8 @@
+{
+  "html": {
+    "indent_size": 2,
+    "unformatted": ["svg", "pre"],
+    "end_with_newline": true,
+    "preserve_newlines": false
+  }
+}

@@ -1,0 +1,48 @@
+@use "variable" as *;
+@use "./_mixin/mediaquery" as *;
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&display=swap");
+
+* {
+  font-family: "Noto Sans JP", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック", YuGothic, "メイリオ", Meiryo, sans-serif;
+  list-style-type: none;
+  font-size: 62.5%;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--font-txt-color);
+}
+
+body {
+  background-color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  flex: 1;
+}
+
+a {
+  text-decoration: none;
+}
+
+[data-sp="true"] {
+  display: none !important;
+}
+
+[data-sp="false"] {
+  display: inherit !important;
+}
+
+@include mq("md") {
+  [data-sp="true"] {
+    display: inline-block !important;
+  }
+
+  [data-sp="false"] {
+    display: none !important;
+  }
+}

@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+@use "sass:map";
+
+$breakpoints: (
+  "xs": "(max-width: 500px)",
+  "sm": "(max-width: 768px)",
+  "md": "(max-width: 960px)",
+  "lg": "(max-width: 1260px)",
+  "xl": "(min-width: 1261px)",
+  "hover": "(hover:hover)",
+);
+
+@mixin mq($breakpoint: md) {
+  @media #{map.get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}

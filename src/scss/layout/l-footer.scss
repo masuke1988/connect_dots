@@ -1,0 +1,12 @@
+@use "../foundation/_mixin/mediaquery" as *;
+@use "../foundation/_mixin/font" as *;
+@use "../foundation/variable" as *;
+
+.l-footer {
+  border-top: 1px solid #F3D1BF;
+  max-width: var(--content-width);
+  width: 95%;
+  margin: 100px auto 50px;
+  padding-top: 45px;
+  text-align: center;
+}
