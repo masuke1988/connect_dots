@@ -1,8 +1,8 @@
-import { AdditiveBlending, BufferAttribute, BufferGeometry, DynamicDrawUsage, Points, PointsMaterial } from "three/webgpu"
+import { AdditiveBlending, BufferAttribute, BufferGeometry, DynamicDrawUsage, LineBasicMaterial, LineSegments, Points, PointsMaterial } from "three/webgpu"
 
-const particleCount = 1000
 
 export function connectDotMesh() {
+  const particleCount = 1000
   const pointMate = new PointsMaterial({
     size: 3,
     color: 0xffffff,
@@ -35,5 +35,23 @@ export function connectDotMesh() {
 
   const pointCloud = new Points(particles, pointMate)
 
-  return { pointCloud }
+  const segments = particleCount * particleCount
+  let segmentPositons = new Float32Array(segments * 3)
+  let segmentColors = new Float32Array(segments * 3)
+
+  const segGeo = new BufferGeometry();
+  segGeo.setAttribute('position', new BufferAttribute(segmentPositons, 3).setUsage(DynamicDrawUsage))
+  segGeo.setAttribute('color', new BufferAttribute(segmentColors, 3).setUsage(DynamicDrawUsage))
+  segGeo.computeBoundingSphere()
+  segGeo.setDrawRange(0, 0)
+  const segMat = new LineBasicMaterial({
+    vertexColors: true,
+    transparent: true,
+    blending: AdditiveBlending,
+  })
+
+  const lineMesh = new LineSegments(segGeo, segMat)
+
+
+  return { pointCloud, lineMesh, particleCount }
 }

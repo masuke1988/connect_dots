@@ -8,14 +8,20 @@ import { OrbitControls as OC } from 'three/examples/jsm/controls/OrbitControls.j
 export class App {
   controls: OC
   mesh: ReturnType<typeof connectDotMesh>['pointCloud']
+  lineMesh: ReturnType<typeof connectDotMesh>['lineMesh']
+  particleCount: ReturnType<typeof connectDotMesh>['particleCount']
   clock: Clock
 
   constructor() {
     gl.init()
     this.controls = new OC(gl.camera, gl.renderer.domElement)
-    this.mesh = connectDotMesh().pointCloud
+    const { pointCloud, lineMesh, particleCount } = connectDotMesh()
+    this.mesh = pointCloud
+    this.lineMesh = lineMesh
+    this.particleCount = particleCount
     this.clock = new Clock()
     gl.scene.add(this.mesh)
+    gl.scene.add(this.lineMesh)
 
     this._orbitControls()
     this._helper()
@@ -53,10 +59,17 @@ export class App {
       if (posArr[idx]     < -1 || posArr[idx]     > 1) velArr[idx]     *= -1
       if (posArr[idx + 1] < -1 || posArr[idx + 1] > 1) velArr[idx + 1] *= -1
       if (posArr[idx + 2] < -1 || posArr[idx + 2] > 1) velArr[idx + 2] *= -1
+
+      // 近距離の点を接続
+
     }
 
     this.mesh.geometry.attributes.position.needsUpdate = true
     this.mesh.geometry.attributes.velocity.needsUpdate = true
+
+    // this.lineMesh.geometry.setDrawRange( 0, numConnected * 2 );
+    this.lineMesh.geometry.attributes.position.needsUpdate = true;
+    this.lineMesh.geometry.attributes.color.needsUpdate = true;   
   }
 
   _animate() {
