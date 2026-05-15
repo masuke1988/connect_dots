@@ -14,6 +14,9 @@ importers:
       '@types/three':
         specifier: ^0.174.0
         version: 0.174.0
+      dat.gui:
+        specifier: ^0.7.9
+        version: 0.7.9
       gsap:
         specifier: ^3.12.7
         version: 3.15.0
@@ -794,6 +797,9 @@ packages:
     resolution: {integrity: sha512-NLEZ/BVAl9g426hwUX/qrQ7b/EfQH7BS1tr+CzPo2EgDQbcdzmUVE+fIfsi64lsL638lWgzTEViMAL4pxV1GOg==}
     engines: {node: '>=10'}
     hasBin: true
+
+  dat.gui@0.7.9:
+    resolution: {integrity: sha512-sCNc1OHobc+Erc1HqiswYgHdVNpSJUlk/Hz8vzOCsER7rl+oF/4+v8GXFUyCgtXpoCX6+bnmg07DedLvBLwYKQ==}
 
   debug@4.4.3:
     resolution: {integrity: sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA==}
@@ -2925,6 +2931,8 @@ snapshots:
     dependencies:
       bin-build: 3.0.0
       bin-wrapper: 4.1.0
+
+  dat.gui@0.7.9: {}
 
   debug@4.4.3:
     dependencies:

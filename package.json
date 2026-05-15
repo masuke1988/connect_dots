@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/dat.gui": "^0.7.13",
     "@types/node": "^22.13.10",
     "autoprefixer": "^10.4.21",
     "css-declaration-sorter": "^7.2.0",
@@ -27,6 +28,7 @@
   "dependencies": {
     "@types/gsap": "^3.0.0",
     "@types/three": "^0.174.0",
+    "dat.gui": "^0.7.9",
     "gsap": "^3.12.7",
     "three": "^0.174.0",
     "vite-plugin-glsl": "^1.6.0"

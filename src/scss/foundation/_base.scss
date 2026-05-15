@@ -6,10 +6,13 @@
 * {
   font-family: "Noto Sans JP", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック", YuGothic, "メイリオ", Meiryo, sans-serif;
   list-style-type: none;
-  font-size: 62.5%;
   font-weight: 400;
   line-height: 1.5;
   color: var(--font-txt-color);
+}
+
+html {
+  font-size: 62.5%;
 }
 
 body {

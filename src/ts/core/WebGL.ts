@@ -14,7 +14,7 @@ class WebGL {
 
     // カメラ
     this.camera = new PerspectiveCamera(75, aspect, 0.01, 1000)
-    this.camera.position.set(0, 5, 0)
+    this.camera.position.set(0, 1, 0)
     this.camera.lookAt(new Vector3(0, 0, 0))
     this.camera.updateProjectionMatrix()
     this.scene.add(this.camera)
